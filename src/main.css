@@ -3,3 +3,21 @@
     display: flex;
     align-items: center;
 }
+#context-menu {
+    position: fixed;
+    z-index: 1000;
+    display: none;
+}
+#context-menu .item {
+    padding:8px 10px;
+    font-size: 15px;
+    color: #E1500B;
+    cursor: pointer;
+}
+#context-menu .item:hover{
+    background: #E1500B;
+    color: #F6E9E9;
+}
+#context-menu.visible {
+    display: block;
+}

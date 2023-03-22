@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/src/main.css">
 </head>
 <body style="height:100%" class="theme-bluelib">
-<div class="panel box mark">
+<div class="panel box mark" style="border-radius: 0px">
     Alchemist
 </div>
 <div style="display: flex; flex-direction: row; height: 90%">
@@ -19,7 +19,15 @@
         </div>
     </div>
     <div style="width: 95%">
-        <canvas id="canvas" style="background-color:#272121; flex:1 1 auto;"></canvas>
+        <canvas id="canvas" style="background-color:#272121; flex:1 1 auto; border-radius: 5px; border-style: solid; border-color:#E1500B" oncontextmenu="context_menu(event)"
+                onclick="click_handler(event)"></canvas>
+    </div>
+</div>
+<div id="context-menu" oncontextmenu="event.preventDefault()">
+    <div class="panel box">
+        <button class="item">New table</button>
+        <button class="item">Edit table</button>
+        <button class="item">...</button>
     </div>
 </div>
 </body>
