@@ -14,10 +14,7 @@
     color: #E1500B;
     cursor: pointer;
 }
-#context-menu .item:hover{
-    background: #E1500B;
-    color: #F6E9E9;
-}
+
 #context-menu.visible {
     display: block;
 }

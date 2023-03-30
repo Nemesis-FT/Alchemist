@@ -25,11 +25,16 @@
 </div>
 <div id="context-menu" oncontextmenu="event.preventDefault()">
     <div class="panel box">
-        <button class="item">New table</button>
+        <button class="item" onclick="new_table(event)">New table</button>
         <button class="item">Edit table</button>
         <button class="item">...</button>
     </div>
 </div>
 </body>
+<script src="src/classes/relationship.js"></script>
+<script src="src/classes/column.js"></script>
+<script src="src/classes/table.js"></script>
+<script src="src/classes/project.js"></script>
 <script src="src/main.js"></script>
+
 </html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alchemist App</title>
+    <link rel="stylesheet" href="https://unpkg.com/@steffo/bluelib@7.0.0/dist/base.root.css">
+    <link rel="stylesheet" href="https://unpkg.com/@steffo/bluelib@7.0.0/dist/classic.root.css">
+    <link rel="stylesheet" href="https://unpkg.com/@steffo/bluelib@7.0.0/dist/colors-amber.root.css">
+    <link rel="stylesheet" href="https://unpkg.com/@steffo/bluelib@7.0.0/dist/fonts-fira-ghpages.root.css">
+    <link rel="stylesheet" href="../../../src/main.css">
+</head>
+<body>
+<form class="panel form-flex">
+    <h2>
+        Alchemist Table editing wizard
+    </h2>
+    <label>
+        <span>Table name</span>
+        <input id="name" type="text" placeholder="User">
+        <span></span>
+    </label>
+    <label>
+        <span>Description</span>
+        <input id="description" type="text" placeholder="A table that will cointain all the users of the app.">
+        <span></span>
+    </label>
+    <label>
+        <span></span>
+        <input type="button" value="Save" onclick="send()">
+        <span></span>
+    </label>
+</form>
+</body>
+<script>
+    let project = null
+    const response = document.getElementById('response');
+
+    window.addEventListener('message', (event) => {
+        console.debug("!!!")
+        console.debug(event)
+        if (event.data?.project) {
+            project = event.data.project
+        }
+    });
+
+    function send(){
+        let name = document.getElementById("name").value
+        let description = document.getElementById("description").value
+        let table = new Table(project.table_id, name, description)
+        window.opener.postMessage({table: table, operation: "create_table"}, "*")
+        window.close()
+    }
+</script>
+<script src="../../../src/classes/relationship.js"></script>
+<script src="../../../src/classes/column.js"></script>
+<script src="../../../src/classes/table.js"></script>
+</html>
